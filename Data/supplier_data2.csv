@@ -1,0 +1,5 @@
+Supplier Name,Country,Rating,Decision,Score,Comments,Supplier Offers,Currently Needed,Company Needs,Past Interaction,Trading History,Recommendation,Reviewed By,Submission Time
+Global Tex Co.,India,4.5,Approve,82,Strong supplier history and good communication.,Textiles,Yes,,Existing Supplier,3,,Admin,2025-04-13 12:00:00
+FreshMart Ltd.,Germany,2.0,Reject,35,Not offering what we currently need.,Fresh Produce,No,"Electronics, Machinery",New Supplier,0,"Has recommendation from TechMart",Admin,2025-04-13 12:00:00
+ElectroHub Pvt.,USA,4.8,Approve,88,Top-tier electronics supplier.,Electronics,Yes,,Existing Supplier,5,,Admin,2025-04-13 12:00:00
+AgriSuppliers Inc.,China,3.0,Approve with Conditions,62,Good potential but needs verification.,Food Products,No,Raw Materials,New Supplier,1,"Recommended by AgroLink",Admin,2025-04-13 12:00:00

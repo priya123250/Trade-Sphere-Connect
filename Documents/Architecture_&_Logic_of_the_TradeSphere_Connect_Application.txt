@@ -1,0 +1,94 @@
+
+Architecture & Logic of the TradeSphere Connect Application
+
+1. File Handling and Data Management
+
+Safe CSV Reading (safe_read_csv())
+
+def safe_read_csv(file_path, columns):
+    if os.path.exists(file_path):
+        try:
+            df = pd.read_csv(file_path)
+            if df.empty:
+                return pd.DataFrame(columns=columns)
+            return df
+        except (pd.errors.EmptyDataError, ValueError):
+            return pd.DataFrame(columns=columns)
+    return pd.DataFrame(columns=columns)
+
+Low-Level Operations:
+- os.path.exists() checks the file system
+- pd.read_csv() performs file I/O and parsing
+- Exception handling covers empty or malformed data
+
+2. Data Initialization
+
+if not os.path.exists(CSV_FILE):
+    demo_data = pd.DataFrame([{...}, {...}])
+    demo_data.to_csv(CSV_FILE, index=False)
+
+Low-Level Operations:
+- DataFrame creation involves memory allocation and type inference
+- to_csv() writes the DataFrame to disk
+
+3. Streamlit UI Components
+
+Page Configuration
+
+st.set_page_config()
+
+Low-Level Operations:
+- Sets HTML meta tags and initializes the DOM structure
+
+Form Handling
+
+with st.form("review_form"):
+    if st.form_submit_button():
+        # Process form
+
+Low-Level Operations:
+- Generates <form> element
+- Handles state synchronization via AJAX/WebSocket
+
+4. Decision Calculation Logic
+
+def calculate_decision(rating, needed, interaction, history_years, recommendation=""):
+    score = 0
+    score += rating * 8
+    score += 30 if needed == "Yes" else 0
+    # Additional scoring logic...
+    if score >= 70:
+        return "Approve", score
+    # Other branches...
+
+Low-Level Operations:
+- Arithmetic operations and conditionals
+- Function stack handling
+- Tuple return structure
+
+5. Data Visualization
+
+fig = px.pie(df, names='Decision')
+st.plotly_chart(fig)
+
+Low-Level Operations:
+- Plotly renders using WebGL/SVG
+- Streamlit serializes and sends JSON to frontend
+
+6. Session State Management
+
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = True
+
+Low-Level Operations:
+- Uses dictionary for state
+- Session persistence with browser storage
+
+Memory Management:
+- Pandas uses NumPy arrays and block managers
+- Streamlit manages component lifecycles
+
+Performance Characteristics:
+- I/O Bound: file and network
+- CPU Bound: calculations and charting
+- Memory: DataFrame storage, chart rendering, and session tracking
