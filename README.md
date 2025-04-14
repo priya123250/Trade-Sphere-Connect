@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # 🌐 TradeSphere Connect
 
@@ -60,3 +61,6 @@ For queries or improvements, contact the TradeSphere internal team.
 
 ---
 Built with ❤️ using Streamlit.
+=======
+# Trade-Sphere-Connect
+>>>>>>> 7e1bb08c1f150cc93d85b54e3359ef9879c1cf83
